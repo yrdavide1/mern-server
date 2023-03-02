@@ -29,6 +29,9 @@ db.mongoose
     process.exit();
   });
 
+require("./app/routes/auth.routes")(app);
+require("./app/routes/record.routes")(app);
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}.`);
 });

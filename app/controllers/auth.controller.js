@@ -65,6 +65,7 @@ exports.login = (req, res) => {
         .populate('roles', '-__v')
         .exec((err, user) => {
             if (err) {
+                console.error(err);
                 res.status(500).send({ message: err });
                 return;
             }
@@ -84,11 +85,17 @@ exports.login = (req, res) => {
             }
 
             const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 86400 }); // lasts 24 hours
+
+            const authorities = [];
+
+            user.roles.forEach(r => authorities.push('ROLE_' + r.name.toUpperCase()));
+
             res.status(200).send({
                 id: user._id,
                 username: user.username,
                 email: user.email,
                 password: user.password,
+                roles: authorities,
                 accessToken: token
             });
         });

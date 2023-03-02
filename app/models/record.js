@@ -17,7 +17,7 @@ const RecordSchema = new mongoose.Schema({
         type: Number,
         required: true
     }
-}, { versionKey: false });
+});
 
 const Record = mongoose.model('Record', RecordSchema);
 

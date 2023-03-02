@@ -16,10 +16,10 @@ const UserSchema = mongoose.Schema({
     roles: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Roles'
+            ref: 'Role'
         }
     ]
-}, { versionKey: false });
+});
 
 const User = mongoose.model('User', UserSchema);
 
