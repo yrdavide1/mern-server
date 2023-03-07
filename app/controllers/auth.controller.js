@@ -94,7 +94,7 @@ exports.login = (req, res) => {
                 id: user._id,
                 username: user.username,
                 email: user.email,
-                password: user.password,
+                // password: user.password,
                 roles: authorities,
                 accessToken: token
             });
