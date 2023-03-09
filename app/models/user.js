@@ -18,8 +18,16 @@ const UserSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Role'
         }
-    ]
-});
+    ],
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date, 
+        default: Date.now
+    }
+}, { timestamps: true });
 
 const User = mongoose.model('User', UserSchema);
 

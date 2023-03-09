@@ -3,6 +3,8 @@ const User = models.user;
 const Role = models.role;
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const moment = require('moment');
+moment.locale();
 
 exports.register = (req, res) => {
     const user = new User({
@@ -96,7 +98,9 @@ exports.login = (req, res) => {
                 email: user.email,
                 // password: user.password,
                 roles: authorities,
-                accessToken: token
+                accessToken: token,
+                createdAt: moment(user.createdAt).format('DD/MM/YYYY HH:mm:ss'),
+                updatedAt: moment(user.updatedAt).format('DD/MM/YYYY HH:mm:ss')
             });
         });
 };
