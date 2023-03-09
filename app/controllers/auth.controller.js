@@ -104,3 +104,13 @@ exports.login = (req, res) => {
             });
         });
 };
+
+exports.modifyUserInfo = (req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body, (err, user) => {
+        if (err) {
+            res.status(500).send({ message: err });
+            return;
+        }
+    });
+    
+};
