@@ -1,0 +1,218 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "MERN Practice",
+    "dateExported": "2023-03-11T14:23:47.209Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "84206b0f-c0bb-429f-b952-e525e3204785",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2023-02-20T22:36:58.661Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "dbcc515f-bcd3-4fcb-a990-582623f1c636",
+            "name": "Records",
+            "containerId": "",
+            "created": "2023-02-20T22:37:07.690Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "a045b7b5-257f-41c6-bfbb-0da323a6c009",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-03-05T20:59:42.763Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0fd998dd-9293-4d8a-a708-5c0165fd7d4b",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "dbcc515f-bcd3-4fcb-a990-582623f1c636",
+            "name": "Get",
+            "url": "/records",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-02-20T08:23:47.814Z",
+            "modified": "2023-03-05T20:54:36.007Z",
+            "headers": [
+                {
+                    "name": "x-access-token",
+                    "value": "{{mern-practice-token}}"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "205894a6-705c-43a2-a6ad-4bf3a3a8b35f",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "dbcc515f-bcd3-4fcb-a990-582623f1c636",
+            "name": "Add",
+            "url": "http://localhost:5002/record/add",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-02-20T08:24:18.064Z",
+            "modified": "2023-02-20T23:26:07.168Z",
+            "headers": [
+                {
+                    "name": "x-access-token",
+                    "value": "{{mern-practice-token}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"test3\",\n  \"surname\": \"test3\",\n  \"level\": \"intermediate\",\n  \"salary\": 180000\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7c152d57-6ac1-4b9b-8a2e-db5c26d798dd",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "dbcc515f-bcd3-4fcb-a990-582623f1c636",
+            "name": "Delete",
+            "url": "http://localhost:5002/record/delete/63f2d7f6fad9d96fc64c8750",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-02-20T08:26:01.252Z",
+            "modified": "2023-02-20T23:26:13.713Z",
+            "headers": [
+                {
+                    "name": "x-access-token",
+                    "value": "{{mern-practice-token}}"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0c6a44a8-c64c-46ea-b53f-100d4deabc75",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "dbcc515f-bcd3-4fcb-a990-582623f1c636",
+            "name": "Update",
+            "url": "http://localhost:5002/record/update/63f2d870503b792fd799e345",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-02-20T22:26:53.174Z",
+            "modified": "2023-02-20T23:26:19.202Z",
+            "headers": [
+                {
+                    "name": "x-access-token",
+                    "value": "{{mern-practice-token}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"updated name\",\n  \"surname\": \"updated surname\",\n  \"level\": \"senior\",\n  \"salary\": 250000\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "35267c49-f90a-4c8b-bd2c-d549e08f5562",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "84206b0f-c0bb-429f-b952-e525e3204785",
+            "name": "Login",
+            "url": "/login",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-02-20T22:37:39.250Z",
+            "modified": "2023-03-11T10:40:28.358Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "set-env-var",
+                    "custom": "json.accessToken",
+                    "action": "setto",
+                    "value": "{{mern-practice-token}}"
+                }
+            ]
+        },
+        {
+            "_id": "06a635da-eba4-438b-b69c-e8dcb736ca09",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "84206b0f-c0bb-429f-b952-e525e3204785",
+            "name": "Register",
+            "url": "/register",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-02-20T22:37:48.869Z",
+            "modified": "2023-03-11T14:17:21.736Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"user\",\n  \"email\": \"user@gmail.com\",\n  \"password\": \"password\",\n  \"roles\": [\"user\"]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c05a38a3-fea1-42d1-b19e-1b9c15526f47",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "a045b7b5-257f-41c6-bfbb-0da323a6c009",
+            "name": "Modify User Info",
+            "url": "/modifyUserInfo/640c5b9977ff4e2faee527f2",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2023-03-11T12:28:44.113Z",
+            "modified": "2023-03-11T13:38:22.768Z",
+            "headers": [
+                {
+                    "name": "x-access-token",
+                    "value": "{{mern-practice-token}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"password\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cfbfe189-6865-419a-a275-887b03b1addd",
+            "colId": "e42755ed-2f5a-466d-8026-e98cd5cc440d",
+            "containerId": "a045b7b5-257f-41c6-bfbb-0da323a6c009",
+            "name": "Modify User Roles",
+            "url": "/modifyUserRoles/640c8d71d3cc0f3810a0b7a4",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2023-03-11T14:11:15.670Z",
+            "modified": "2023-03-11T14:23:19.191Z",
+            "headers": [
+                {
+                    "name": "x-access-token",
+                    "value": "{{mern-practice-token}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"roles\": [\"user\"]\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [],
+        "tests": [],
+        "options": {
+            "baseUrl": "http://localhost:5002"
+        },
+        "envId": "f6206246-449f-43b7-8830-92012a8cd3f1"
+    }
+}
