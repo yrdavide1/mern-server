@@ -25,7 +25,8 @@ const UserSchema = mongoose.Schema({
     },
     updatedAt: {
         type: Date, 
-        default: Date.now
+        default: Date.now,
+        $set: v => v.Date.now()
     }
 }, { timestamps: true });
 

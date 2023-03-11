@@ -31,6 +31,7 @@ db.mongoose
 
 require("./app/routes/auth.routes")(app);
 require("./app/routes/record.routes")(app);
+require("./app/routes/user.routes")(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}.`);

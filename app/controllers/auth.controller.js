@@ -2,15 +2,14 @@ const models = require('../models');
 const User = models.user;
 const Role = models.role;
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
-const moment = require('moment');
-moment.locale();
 
 exports.register = (req, res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: bcrypt.hashSync(req.body.password, 8)
     });
 
     user.save((err, user) => {
@@ -67,7 +66,6 @@ exports.login = (req, res) => {
         .populate('roles', '-__v')
         .exec((err, user) => {
             if (err) {
-                console.error(err);
                 res.status(500).send({ message: err });
                 return;
             }
@@ -77,7 +75,10 @@ exports.login = (req, res) => {
                 return;
             }
 
-            const isPasswordValid = (user.password === req.body.password);
+            const isPasswordValid = bcrypt.compareSync(
+                req.body.password,
+                user.password
+            );
 
             if (!isPasswordValid) {
                 return res.status(401).send({
@@ -99,18 +100,8 @@ exports.login = (req, res) => {
                 // password: user.password,
                 roles: authorities,
                 accessToken: token,
-                createdAt: moment(user.createdAt).format('DD/MM/YYYY HH:mm:ss'),
-                updatedAt: moment(user.updatedAt).format('DD/MM/YYYY HH:mm:ss')
+                createdAt: user.createdAt,
+                updatedAt: user.updatedAt
             });
         });
-};
-
-exports.modifyUserInfo = (req, res) => {
-    User.findByIdAndUpdate(req.params.id, req.body, (err, user) => {
-        if (err) {
-            res.status(500).send({ message: err });
-            return;
-        }
-    });
-    
 };
