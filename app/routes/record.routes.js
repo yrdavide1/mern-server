@@ -16,5 +16,5 @@ module.exports = function (app) {
     
     app.delete('/record/delete/:id', [authJwt.verifyToken], controller.deleteRecord);
     
-    app.put('/record/update/:id', [authJwt.verifyToken], controller.updateRecord);
+    app.put('/record/update', [authJwt.verifyToken], controller.updateRecord);
 };
