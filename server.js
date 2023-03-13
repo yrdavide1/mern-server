@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./app/models");
 const Role = db.role;
 const RolesLength = db.ROLES.length;
+const Country = db.country;
+const CountriesLength = db.COUNTRIES.length;
 
 db.mongoose.set('strictQuery', false);
 db.mongoose
@@ -23,6 +25,7 @@ db.mongoose
   .then(() => {
     console.log("Successfully connected to MongoDB.");
     initRoles();
+    initCountries();
   })
   .catch(err => {
     console.error("Connection error.", err);
@@ -32,6 +35,7 @@ db.mongoose
 require("./app/routes/auth.routes")(app);
 require("./app/routes/record.routes")(app);
 require("./app/routes/user.routes")(app);
+require("./app/routes/country.routes")(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}.`);
@@ -56,4 +60,22 @@ const initRoles = () => {
             console.log('Roles collection already initialized.');
         }
     });
-}
+};
+
+const initCountries = () => {
+  Country.estimatedDocumentCount((err, count) => {
+    if (!err && count !== CountriesLength) {
+      console.log('Initializing Countries collection.');
+      Country.deleteMany({}, () => {
+        Country.insertMany(
+          db.COUNTRIES,
+          () => {
+            console.log('Countries collection initialized.');
+          }
+        );
+      });
+    } else if (!err && count > 0) {
+      console.log('Countries collection already initialized.');
+    }
+  });
+};

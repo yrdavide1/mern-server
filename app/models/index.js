@@ -8,7 +8,9 @@ db.mongoose = mongoose;
 db.user = require('./user');
 db.role = require('./role');
 db.record = require('./record');
+db.country = require('./country');
 
 db.ROLES = ['user', 'admin'];
+db.COUNTRIES = require('../resources/countries.json');
 
 module.exports = db;

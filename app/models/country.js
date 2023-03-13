@@ -1,17 +1,16 @@
 const mongoose = require('mongoose');
 
-const RecordSchema = new mongoose.Schema({
+const CountrySchema = mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    surname: {
+    code: {
         type: String,
         required: true
-    },
-    
+    }
 });
 
-const Record = mongoose.model('Record', RecordSchema);
+const Country = mongoose.model('Country', CountrySchema);
 
-module.exports = Record;
+module.exports = Country;
