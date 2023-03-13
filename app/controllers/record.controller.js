@@ -6,7 +6,8 @@ exports.addRecord = (req, res) => {
     const record = new RecordModel({
         name: req.body.name,
         surname: req.body.surname,
-        dateOfBirth: moment(req.body.dateOfBirth, 'YYYY-MM-DD').toISOString(true)
+        dateOfBirth: moment(req.body.dateOfBirth, 'YYYY-MM-DD').toISOString(true),
+        gender: req.body.gender
     });
 
     record.save((err, record1) => {
