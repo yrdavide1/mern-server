@@ -45,8 +45,7 @@ const initRoles = () => {
                 Role.insertMany(
                     [
                         { name: 'user' },
-                        { name: 'admin' },
-                        { name: 'moderator' }
+                        { name: 'admin' }
                     ],
                     () => {
                         console.log('Roles collection initialized.');

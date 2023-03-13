@@ -12,5 +12,5 @@ module.exports = function (app) {
 
     app.put("/modifyUserInfo/:id", [authJwt.verifyToken], controller.modifyUserInfo);
 
-    app.put("/modifyUserRoles/:id", [authJwt.verifyToken], controller.modifyUserRoles);
+    app.put("/modifyUserRoles", [authJwt.verifyToken], controller.modifyUserRoles);
 };

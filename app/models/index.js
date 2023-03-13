@@ -9,6 +9,6 @@ db.user = require('./user');
 db.role = require('./role');
 db.record = require('./record');
 
-db.ROLES = ['user', 'admin', 'moderator'];
+db.ROLES = ['user', 'admin'];
 
 module.exports = db;
