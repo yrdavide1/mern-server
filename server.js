@@ -38,8 +38,6 @@ require("./app/routes/record.routes")(app);
 require("./app/routes/user.routes")(app);
 require("./app/routes/country.routes")(app);
 
-app.get('/', (req, res) => res.send('Home Page Route'));
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);
 });
