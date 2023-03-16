@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+const port = process.env.PORT || 5002;
 const db = require("./app/models");
 const Role = db.role;
 const RolesLength = db.ROLES.length;
@@ -37,9 +38,11 @@ require("./app/routes/record.routes")(app);
 require("./app/routes/user.routes")(app);
 require("./app/routes/country.routes")(app);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}.`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
 });
+
+module.exports = app;
 
 const initRoles = () => {
     Role.estimatedDocumentCount((err, count) => {
